@@ -17,7 +17,6 @@ namespace TextFileCounter
 
         public static void GetWordsCount(List<string> strList, bool caseSensitive) 
         {
-            List<string> myList = new List<string>();
             foreach (string str in strList)
             {
                 if (caseSensitive)
@@ -45,8 +44,6 @@ namespace TextFileCounter
 
         public static void GetPhrasesCount(List<string> strList, bool caseSensitive)
         {
-            List<string> myList = new List<string>();
-            string contents = File.ReadAllText(MainForm.fileName);
             foreach (string str in strList)
             {
                 if (caseSensitive)
@@ -74,13 +71,19 @@ namespace TextFileCounter
         }
 
         public static void ReplaceCharacters(Dictionary<char, char> charDict) 
-        { 
+        {
+            foreach (KeyValuePair<char, char> entry in charDict)
+            {
+                Console.WriteLine($"The word ({entry.Key}) appeared in text {entry.Value} times");
+                contents = contents.Replace(entry.Key, entry.Value);
+                System.IO.File.WriteAllText(@"D:\Studying\Self Studies\C#\Projects\WriteText.txt", contents);
+            }
             
         }
 
         public static void ReadText() 
         {
-            contents = File.ReadAllText(MainForm.fileName);
+            contents = File.ReadAllText(MainForm.InputFileName);
         }
     }
 }

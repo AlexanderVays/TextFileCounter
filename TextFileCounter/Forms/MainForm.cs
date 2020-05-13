@@ -14,8 +14,9 @@ namespace TextFileCounter.Forms
 {
     partial class MainForm : System.Windows.Forms.Form, IMainForm
     {
-        public static string fileName { get; set; }
-        public static Control control { get; set; }
+        public static string InputFileName { get; set; }
+        public static string OutputFileName { get; set; }
+        public static Control Control { get; set; }
 
         public MainForm()
         {
@@ -31,30 +32,30 @@ namespace TextFileCounter.Forms
             {
                 case 0:
                     WordsCountControl wc = new WordsCountControl();
-                    if (control != null) 
+                    if (Control != null) 
                     {
-                        Controls.Remove(control);
+                        Controls.Remove(Control);
                     }
                     Controls.Add(wc);
-                    control = wc;
+                    Control = wc;
                     break;
                 case 1:
                     PhrasesCountControl pc = new PhrasesCountControl();
-                    if (control != null)
+                    if (Control != null)
                     {
-                        Controls.Remove(control);
+                        Controls.Remove(Control);
                     }
                     Controls.Add(pc);
-                    control = pc;
+                    Control = pc;
                     break;
                 case 2:
                     CharactersReplaceControl cr = new CharactersReplaceControl();
-                    if (control != null)
+                    if (Control != null)
                     {
-                        Controls.Remove(control);
+                        Controls.Remove(Control);
                     }
                     Controls.Add(cr);
-                    control = cr;
+                    Control = cr;
                     break;
                 default:
                     break;
@@ -68,7 +69,7 @@ namespace TextFileCounter.Forms
 
         public bool ValidateTextFile()
         {
-            if (!File.Exists(fileName) && string.IsNullOrEmpty(fileName))
+            if (!File.Exists(InputFileName) && string.IsNullOrEmpty(InputFileName))
             { 
                 string message = "You did not provide a file name. Do you want to select a file?";
                 string caption = "Error Detected in a file provided";
@@ -87,7 +88,7 @@ namespace TextFileCounter.Forms
                 } 
             }
 
-            if (File.Exists(fileName) && !string.IsNullOrEmpty(fileName))
+            if (File.Exists(InputFileName) && !string.IsNullOrEmpty(InputFileName))
             {
                 return true;
             }
@@ -108,7 +109,7 @@ namespace TextFileCounter.Forms
                 {
                     //Get the path of specified file
                     labelFileName.Text = openFileDialog.FileName;
-                    fileName = openFileDialog.FileName;
+                    InputFileName = openFileDialog.FileName;
                 }
             }
         }
