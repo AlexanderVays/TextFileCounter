@@ -30,7 +30,7 @@ namespace TextFileCounter.Forms
                 "2b. Count phrases and sentenses with a maximum of 300 characters.  \r\n" +
                 "\r\nI have read and accept the Terms and Conditions of use, Privacy Policy and consent to receiving information from this application in relation to this request. " +
                 "We values the privacy of your personal details and we will not share or otherwise distribute your Personal Data to third parties.";
-            label3.Text = $"Copyright © 2020 by Alexander Vays";
+            label3.Text = $"Copyright © Alexander Vays 2020";
         }
 
         private void BtnAccept_Click(object sender, EventArgs e)

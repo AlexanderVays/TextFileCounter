@@ -27,7 +27,8 @@ namespace TextFileCounter.UserControls
             bool caseSensitive = checkBoxCaseSensitive.Checked;
             if (IMF.ValidateTextFile())
             {
-                Reader.GetPhrasesCount(inputList, caseSensitive);
+                Processor.ReadText();
+                Processor.GetPhrasesCount(inputList, caseSensitive);
                 CountSentencesResultForm resultForm = new CountSentencesResultForm();
                 resultForm.ShowDialog();
             }

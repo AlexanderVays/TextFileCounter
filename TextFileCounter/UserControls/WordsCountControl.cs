@@ -28,7 +28,8 @@ namespace TextFileCounter.UserControls
             bool caseSensitive = checkBoxCaseSensitive.Checked;
             if (IMF.ValidateTextFile())
             {
-                Reader.GetWordsCount(wordsList, caseSensitive);
+                Processor.ReadText();
+                Processor.GetWordsCount(wordsList, caseSensitive);
                 CountWordsResultForm resultForm = new CountWordsResultForm();
                 resultForm.ShowDialog();
             }

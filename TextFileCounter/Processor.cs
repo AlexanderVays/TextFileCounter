@@ -10,14 +10,14 @@ using TextFileCounter.Forms;
 
 namespace TextFileCounter
 {
-    class Reader
+    class Processor
     {
         public static Dictionary<string, int> resultDictionary = new Dictionary<string, int>();
+        private static string contents = "";
 
         public static void GetWordsCount(List<string> strList, bool caseSensitive) 
         {
             List<string> myList = new List<string>();
-            string contents = File.ReadAllText(MainForm.fileName);
             foreach (string str in strList)
             {
                 if (caseSensitive)
@@ -28,13 +28,6 @@ namespace TextFileCounter
                         int count = matches.Count > 0 ? matches.Count : 0;
                         resultDictionary.Add(str, count);
                     }
-
-                    /*
-                    foreach (KeyValuePair<string, int> entry in resultDictionary)
-                    {
-                        Console.WriteLine($"The word ({entry.Key}) appeared in text {entry.Value} times");
-                    }
-                    */
                 }
                 else
                 {
@@ -45,12 +38,6 @@ namespace TextFileCounter
                         int count = matches.Count > 0 ? matches.Count : 0;
                         resultDictionary.Add(str, count);
                     }
-
-                    /*
-                    foreach (KeyValuePair<string, int> entry in resultDictionary)
-                    {
-                        Console.WriteLine($"The word ({entry.Key}) appeared in text {entry.Value} times");
-                    } */
                 }
             }
         }
@@ -72,13 +59,6 @@ namespace TextFileCounter
                         int count = matches.Count > 0 ? matches.Count : 0;
                         resultDictionary.Add(str, count);
                     }
-
-                    /*
-                    foreach (KeyValuePair<string, int> entry in resultDictionary)
-                    {
-                        Console.WriteLine($"The word ({entry.Key}) appeared in text {entry.Value} times");
-                    }
-                    */
                 }
                 else
                 {
@@ -89,14 +69,18 @@ namespace TextFileCounter
                         int count = matches.Count > 0 ? matches.Count : 0;
                         resultDictionary.Add(str, count);
                     }
-
-                    /*
-                    foreach (KeyValuePair<string, int> entry in resultDictionary)
-                    {
-                        Console.WriteLine($"The word ({entry.Key}) appeared in text {entry.Value} times");
-                    } */
                 }
             }
+        }
+
+        public static void ReplaceCharacters(Dictionary<char, char> charDict) 
+        { 
+            
+        }
+
+        public static void ReadText() 
+        {
+            contents = File.ReadAllText(MainForm.fileName);
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TextFileCounter.Forms;
 
 namespace TextFileCounter.UserControls
 {
@@ -61,6 +62,11 @@ namespace TextFileCounter.UserControls
             {
                 MessageBox.Show(sb.ToString());
             }
+
+            Processor.ReadText();
+            Processor.ReplaceCharacters(charDictionary);
+            CountWordsResultForm resultForm = new CountWordsResultForm();
+            resultForm.ShowDialog();
         }
     }
 }
