@@ -26,7 +26,7 @@ namespace TextFileCounter.UserControls
             List<string> wordsList = new List<string> { textBox1.Text.Trim(space), textBox2.Text.Trim(space), textBox3.Text.Trim(space), textBox4.Text.Trim(space), textBox5.Text.Trim(space), textBox6.Text.Trim(space) };
             wordsList.RemoveAll(item => item == null || item == "");
             bool caseSensitive = checkBoxCaseSensitive.Checked;
-            if (IMF.ValidateTextFile())
+            if (IMF.ValidateInputFile())
             {
                 Processor.ReadText();
                 Processor.GetWordsCount(wordsList, caseSensitive);

@@ -25,7 +25,7 @@ namespace TextFileCounter.UserControls
             List<string> inputList = new List<string> { textBox1.Text.Trim(space), textBox2.Text.Trim(space), textBox3.Text.Trim(space)};
             inputList.RemoveAll(item => item == null || item == "");
             bool caseSensitive = checkBoxCaseSensitive.Checked;
-            if (IMF.ValidateTextFile())
+            if (IMF.ValidateInputFile())
             {
                 Processor.ReadText();
                 Processor.GetPhrasesCount(inputList, caseSensitive);

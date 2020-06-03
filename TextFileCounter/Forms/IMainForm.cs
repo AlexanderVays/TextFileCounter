@@ -8,6 +8,7 @@ namespace TextFileCounter.Forms
 {
     interface IMainForm
     {
-        bool ValidateTextFile();
+        bool ValidateInputFile();
+        bool ValidateOutputFile();
     }
 }

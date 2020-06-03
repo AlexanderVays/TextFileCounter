@@ -13,6 +13,7 @@ namespace TextFileCounter.UserControls
 {
     public partial class CharactersReplaceControl : UserControl
     {
+        IMainForm IMF = new MainForm();
         public CharactersReplaceControl()
         {
             InitializeComponent();
@@ -40,7 +41,7 @@ namespace TextFileCounter.UserControls
                 {
                     sb.Append($"The new character which will replace the '{textBox3.Text}' character was not indicated.\r\n");
                 }
-                else if (!charDictionary.ContainsKey(char.Parse(textBox1.Text)))
+                else if (!charDictionary.ContainsKey(char.Parse(textBox3.Text)))
                 {
                     charDictionary.Add(char.Parse(textBox3.Text), char.Parse(textBox4.Text));
                 }
@@ -63,10 +64,14 @@ namespace TextFileCounter.UserControls
                 MessageBox.Show(sb.ToString());
             }
 
-            Processor.ReadText();
-            Processor.ReplaceCharacters(charDictionary);
-            CountWordsResultForm resultForm = new CountWordsResultForm();
-            resultForm.ShowDialog();
+            if (IMF.ValidateInputFile())
+            {
+                Processor.ReadText();
+                Processor.ReplaceCharacters(charDictionary);
+                CountWordsResultForm resultForm = new CountWordsResultForm();
+                resultForm.ShowDialog();
+            }
         }
+
     }
 }

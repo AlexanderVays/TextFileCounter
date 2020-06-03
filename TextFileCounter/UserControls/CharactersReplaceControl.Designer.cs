@@ -43,6 +43,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.labelOutputFile = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -184,11 +185,22 @@
             this.checkBox1.Text = "Create a new text file";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // labelOutputFile
+            // 
+            this.labelOutputFile.AutoSize = true;
+            this.labelOutputFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOutputFile.Location = new System.Drawing.Point(73, 664);
+            this.labelOutputFile.Name = "labelOutputFile";
+            this.labelOutputFile.Size = new System.Drawing.Size(100, 25);
+            this.labelOutputFile.TabIndex = 30;
+            this.labelOutputFile.Text = "Save File:";
+            // 
             // CharactersReplaceControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.labelOutputFile);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -229,5 +241,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label labelOutputFile;
     }
 }

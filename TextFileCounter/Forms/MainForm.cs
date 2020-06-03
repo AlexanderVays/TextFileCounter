@@ -64,10 +64,10 @@ namespace TextFileCounter.Forms
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            FileDialog();
+            FileDialog("input");
         }
 
-        public bool ValidateTextFile()
+        public bool ValidateInputFile()
         {
             if (!File.Exists(InputFileName) && string.IsNullOrEmpty(InputFileName))
             { 
@@ -80,7 +80,7 @@ namespace TextFileCounter.Forms
                 result = MessageBox.Show(message, caption, buttons);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    FileDialog();
+                    FileDialog("input");
                 }
                 else
                 {
@@ -96,7 +96,36 @@ namespace TextFileCounter.Forms
             return false;
         }
 
-        public void FileDialog() 
+        public bool ValidateOutputFile()
+        {
+            if (!File.Exists(OutputFileName) && string.IsNullOrEmpty(OutputFileName))
+            {
+                string message = "You did not provide an output file name. Do you want to select a file?";
+                string caption = "Error Detected in an output file provided";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                // Displays the MessageBox.
+                result = MessageBox.Show(message, caption, buttons);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    FileDialog("output");
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            if (File.Exists(OutputFileName) && !string.IsNullOrEmpty(OutputFileName))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public void FileDialog(string source) 
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -107,9 +136,18 @@ namespace TextFileCounter.Forms
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
-                    labelFileName.Text = openFileDialog.FileName;
-                    InputFileName = openFileDialog.FileName;
+                    if (source.Equals("input"))
+                    {
+                        //Get the path of specified input file
+                        labelFileName.Text = openFileDialog.FileName;
+                        InputFileName = openFileDialog.FileName;
+                    }
+                    else if (source.Equals("output")) 
+                    {
+                        //Get the path of specified output file
+                        //CharactersReplaceControl..Text = openFileDialog.FileName;
+                        OutputFileName = openFileDialog.FileName;
+                    }
                 }
             }
         }
