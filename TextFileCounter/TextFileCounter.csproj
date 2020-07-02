@@ -77,6 +77,12 @@
     <Compile Include="UserControls\CharactersReplaceControl.Designer.cs">
       <DependentUpon>CharactersReplaceControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\CheckParenthesesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CheckParenthesesControl.Designer.cs">
+      <DependentUpon>CheckParenthesesControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PhrasesCountControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CharactersReplaceControl.resx">
       <DependentUpon>CharactersReplaceControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CheckParenthesesControl.resx">
+      <DependentUpon>CheckParenthesesControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PhrasesCountControl.resx">
       <DependentUpon>PhrasesCountControl.cs</DependentUpon>

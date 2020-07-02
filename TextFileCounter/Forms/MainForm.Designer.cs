@@ -50,7 +50,8 @@
             "Count words and phrases (30 characters length)",
             "Count quotes and sentences (300 characters length)",
             "Replace specific characters",
-            "Replace words, quotes, phrases, sentences "});
+            "Replace words, quotes, phrases, sentences ",
+            "Check parentheses"});
             this.selectBox.Location = new System.Drawing.Point(114, 269);
             this.selectBox.Name = "selectBox";
             this.selectBox.RightToLeft = System.Windows.Forms.RightToLeft.No;

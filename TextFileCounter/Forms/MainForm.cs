@@ -57,6 +57,15 @@ namespace TextFileCounter.Forms
                     Controls.Add(cr);
                     Control = cr;
                     break;
+                case 4:
+                    CheckParenthesesControl cp = new CheckParenthesesControl();
+                    if (Control != null)
+                    {
+                        Controls.Remove(Control);
+                    }
+                    Controls.Add(cp);
+                    Control = cp;
+                    break;
                 default:
                     break;
             }
